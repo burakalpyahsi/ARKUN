@@ -134,7 +134,12 @@ export default function DashboardsPage() {
     const [selectedDashboard, setSelectedDashboard] = useState<typeof dashboards[0] | null>(null);
     const [activeCategory, setActiveCategory] = useState('All');
     const [hoveredId, setHoveredId] = useState<string | null>(null);
+    const [hasMounted, setHasMounted] = useState(false);
     const dashboardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
     // Handle URL hash scrolling for AI chatbot navigation
     useEffect(() => {
@@ -235,7 +240,7 @@ export default function DashboardsPage() {
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     <AnimatePresence mode="popLayout">
-                        {filteredDashboards.map((dashboard, index) => (
+                        {hasMounted && filteredDashboards.map((dashboard, index) => (
                             <motion.div
                                 key={dashboard.id}
                                 id={dashboard.id}

@@ -76,8 +76,8 @@ export function HeroComparison() {
             <div className={`container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center h-full transition-all duration-500 ${activeIndex !== -1 ? 'lg:translate-x-[-15%]' : ''}`}>
 
                 {/* Left Side: Minimalist Text List & Connecting Lines */}
-                <div ref={containerRef} className="relative flex flex-col justify-center h-full order-2 lg:order-1">
-                    <div className="space-y-8 relative z-10 pl-8 flex flex-col items-start w-[380px]" role="list">
+                <div ref={containerRef} className="relative flex flex-col justify-center h-full order-2 lg:order-1 items-center lg:items-start">
+                    <div className="space-y-8 relative z-10 lg:pl-8 flex flex-col items-center lg:items-end w-full max-w-[380px]" role="list">
                         {features.map((feature, index) => (
                             <motion.button
                                 key={feature.id}
@@ -94,7 +94,7 @@ export function HeroComparison() {
                                 aria-expanded={activeIndex === index}
                                 aria-controls={`drawer-${feature.id}`}
                                 aria-label={`View details for ${feature.label}`}
-                                className="group cursor-pointer relative z-20 w-full flex justify-end pr-4 text-right focus:outline-none focus:ring-2 focus:ring-teal-400/50 rounded-lg"
+                                className="group cursor-pointer relative z-20 w-full flex justify-center lg:justify-end lg:pr-4 text-center lg:text-right focus:outline-none focus:ring-2 focus:ring-teal-400/50 rounded-lg"
                             >
                                 <span
                                     className={`
@@ -228,10 +228,11 @@ export function HeroComparison() {
                         transition={{ delay: 1 }}
                         className="mt-12 flex flex-col sm:flex-row gap-6 relative z-10"
                     >
-                        <Button size="lg" className="bg-teal-400 text-teal-900 hover:bg-teal-300 shadow-[0_0_20px_rgba(29,228,222,0.4)]">
-                            LOTO SENSORS
-                        </Button>
-
+                        <Link href="/dashboards">
+                            <Button size="lg" className="bg-teal-400 text-teal-900 hover:bg-teal-300 shadow-[0_0_20px_rgba(29,228,222,0.4)]">
+                                CHECK DEMO
+                            </Button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
