@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* New Teal/Cyan Color Palette */
+  --color-teal-50: #F6FEFF;
+  --color-teal-100: #E0FBFE;
+  --color-teal-200: #BAF9FD;
+  --color-teal-300: #51F7ED;
+  --color-teal-400: #1DE4DE;
+  --color-teal-500: #11D3CD;
+  --color-teal-600: #00A0A1;
+  --color-teal-700: #057E80;
+  --color-teal-800: #0E5053;
+  --color-teal-900: #00191B;
+  
+  --color-primary: #00191B; /* Deep Teal (background) */
+  --color-primary-foreground: #1DE4DE;
+  
+  --color-secondary: #0E5053; /* Mid Teal */
+  --color-secondary-foreground: #E0FBFE;
+  
+  --color-accent: #1DE4DE; /* Bright Cyan */
+  --color-accent-foreground: #00191B;
+  
+  --color-slate-850: #0E5053;
+  
+  --color-background: #00191B;
+  --color-foreground: #E0FBFE;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
+}
+
+:root {
+  --background: #00191B;
+  --foreground: #E0FBFE;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #00191B;
+    --foreground: #E0FBFE;
+  }
+}
+
+/* Force dark mode by default if class is present, or override logic */
+.dark {
+  --background: #00191B;
+  --foreground: #E0FBFE;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+/* Industrial Grid Background */
+.bg-grid-white {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Chatbot Neon Pulse Animation */
+@keyframes chat-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-chat-pulse {
+  animation: chat-pulse 2s ease-out infinite;
+}
